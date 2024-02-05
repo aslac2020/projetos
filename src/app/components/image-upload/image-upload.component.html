@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Faça o Upload de sua Image</h1>
+  <div class="container-upload">
+    <mat-icon>cloud_upload</mat-icon>
+    <span>drag and drop your file</span>
+    <button mat-raised-button color="primary" (click)="uploadImage()">
+      Upload File
+    </button>
+    <input
+      type="file"
+      #fileInput
+      style="display: none"
+      (change)="onFileSelectionChange($event)"
+    />
+  </div>
+
+  <div>
+    <h1>SUA FOTO</h1>
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="" style="width: 200px" />
+    <button mat-raised-button color="primary" (click)="transformarImagem()">
+      TRANSFORMAR
+    </button>
+  </div>
+</div>

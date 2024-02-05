@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1 {
+    font-size: 25px;
+    color: rgb(5, 30, 150);
+    font-weight: bold;
+  }
+
+  .example-card {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+
+    mat-card-title {
+      margin-top: 10px;
+    }
+
+    .botao-acao {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

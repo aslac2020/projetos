@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <img src="assets/images/balanca.png" alt="" />
+  <form [formGroup]="formImc">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Peso (kg)</mat-label>
+        <input matInput mask="0X.0X || 0XX.0X" formControlName="Weigth" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Altura (cm)</mat-label>
+        <input matInput mask="0.00" formControlName="Height" />
+      </mat-form-field>
+    </div>
+    <div class="container-botao">
+      <button
+        [disabled]="formImc.invalid"
+        mat-raised-button
+        color="primary"
+        (click)="calculateImc()"
+      >
+        ENVIAR
+      </button>
+    </div>
+  </form>
+</div>
