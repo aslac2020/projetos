@@ -4,13 +4,18 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Peso (kg)</mat-label>
-        <input matInput mask="0X.0X || 0XX.0X" formControlName="Weigth" />
+        <input
+          matInput
+          mask="0X.0X || 0XX.0X"
+          formControlName="Weigth"
+          #weightInput
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Altura (cm)</mat-label>
-        <input matInput mask="0.00" formControlName="Height" />
+        <input matInput mask="0.00" formControlName="Height" #heightInput />
       </mat-form-field>
     </div>
     <div class="container-botao">
@@ -18,10 +23,18 @@
         [disabled]="formImc.invalid"
         mat-raised-button
         color="primary"
-        (click)="calculateImc()"
+        (click)="calculateImc(weightInput.value, heightInput.value)"
       >
         ENVIAR
       </button>
     </div>
   </form>
+  <div class="resultado-imc" *ngIf="valueIMC">
+    <span>seu Índice de Massa Corporal é:</span>
+    <h1>{{ valueIMC }}</h1>
+    <div class="card">
+      <img [src]="imageURL" />
+      <p>{{ descriptionIMC }}</p>
+    </div>
+  </div>
 </div>
