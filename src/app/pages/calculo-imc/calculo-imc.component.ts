@@ -11,6 +11,7 @@ export class CalculoImcComponent implements OnInit {
   public valueIMC!: any;
   public imageURL!: string;
   public descriptionIMC!: string;
+  public sumirCard = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -68,5 +69,16 @@ export class CalculoImcComponent implements OnInit {
           'Aqui o sinal é vermelho, com forte probabilidade de já existirem doenças muito graves associadas. O tratamento deve ser ainda mais urgente.';
         break;
     }
+  }
+
+  public clearForm() {
+    this.sumirCard = true;
+    this.formImc.reset(
+      {
+        Weigth: '',
+        Height: '',
+      },
+      { emitEvent: false }
+    );
   }
 }

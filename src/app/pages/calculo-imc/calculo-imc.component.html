@@ -25,11 +25,23 @@
         color="primary"
         (click)="calculateImc(weightInput.value, heightInput.value)"
       >
-        ENVIAR
+        CALCULAR
+      </button>
+      <button
+        [disabled]="formImc.invalid"
+        mat-raised-button
+        color="primary"
+        (click)="clearForm()"
+      >
+        LIMPAR
       </button>
     </div>
   </form>
-  <div class="resultado-imc" *ngIf="valueIMC">
+  <div
+    [ngClass]="{ desativado: sumirCard }"
+    class="resultado-imc"
+    *ngIf="valueIMC || sumirCard"
+  >
     <span>seu Índice de Massa Corporal é:</span>
     <h1>{{ valueIMC }}</h1>
     <div class="card">
