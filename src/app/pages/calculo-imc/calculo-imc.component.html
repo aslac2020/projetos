@@ -37,11 +37,7 @@
       </button>
     </div>
   </form>
-  <div
-    [ngClass]="{ desativado: sumirCard }"
-    class="resultado-imc"
-    *ngIf="valueIMC || sumirCard"
-  >
+  <div class="resultado-imc" *ngIf="valueIMC && !sumirCard">
     <span>seu Índice de Massa Corporal é:</span>
     <h1>{{ valueIMC }}</h1>
     <div class="card">
