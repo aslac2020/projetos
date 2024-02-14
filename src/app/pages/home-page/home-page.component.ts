@@ -21,21 +21,21 @@ export class HomePageComponent implements OnInit {
     this.funcionalidades = [
       {
         id: 0,
-        titulo: 'Crie seu Avatar',
-        urlImage: './assets/images/avatar.png',
-        descricao: 'Crie seu avatar, a partir de uma foto sua',
-      },
-      {
-        id: 1,
         titulo: 'Chat com IA',
         urlImage: './assets/images/chatai.png',
         descricao: 'Tire suas duvidas com esse poderoso chat',
       },
       {
-        id: 2,
+        id: 1,
         titulo: 'Peso ideal',
         urlImage: './assets/images/imc.png',
-        descricao: 'Calcule seu imc',
+        descricao: 'Calcule seu imc(Índice de Massa Corporal)',
+      },
+      {
+        id: 2,
+        titulo: 'Leitor de PDF',
+        urlImage: './assets/images/leitorpdf.png',
+        descricao: 'Leitor de Pdf com audio',
       },
     ];
   }
@@ -45,11 +45,11 @@ export class HomePageComponent implements OnInit {
       case 0:
         this.router.navigate(['']);
         break;
-      case 0:
-        this.router.navigate(['']);
+      case 1:
+        this.router.navigate(['/calculo-imc']);
         break;
       case 2:
-        this.router.navigate(['/calculo-imc']);
+        this.router.navigate(['/leitor-pdf']);
         break;
       default:
         break;
