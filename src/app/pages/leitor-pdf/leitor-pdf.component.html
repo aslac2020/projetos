@@ -1,5 +1,7 @@
 <div class="container mt-4">
-  <img src="assets/images/pdfleitor.png" alt="" />
+  <div *ngIf="!pdfSrc">
+    <img src="assets/images/pdfleitor.png" alt="" />
+  </div>
   <app-upload-files (fileSelected)="fileUpload($event)"></app-upload-files>
   <div class="container-pdf" *ngIf="pdfSrc">
     <iframe
