@@ -20,7 +20,6 @@ export class LeitorPdfComponent implements OnInit {
   ngOnInit() {}
 
   public fileUpload(file: File) {
-    console.log(file);
     if (file) {
       const blob = new Blob([file], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
