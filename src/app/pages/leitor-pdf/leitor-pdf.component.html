@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <img src="assets/images/pdfleitor.png" alt="" />
+  <app-upload-files (fileSelected)="fileUpload($event)"></app-upload-files>
+  <div class="container-pdf" *ngIf="pdfSrc">
+    <iframe
+      [src]="pdfSrc"
+      width="100%"
+      height="600px"
+      allowfullscreen="true"
+      frameborder="0"
+    ></iframe>
+  </div>
+</div>

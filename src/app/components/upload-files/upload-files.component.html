@@ -1,0 +1,63 @@
+<div
+  class="container-empty-files"
+  *ngIf="!listFiles.length"
+  [class.arrastando]="isDragging"
+  (dragover)="aoDragOver($event)"
+  (dragleave)="aoDragLeave()"
+  (drop)="aoDrop($event)"
+>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="disabled"
+    (click)="buttonInputFile.click()"
+  >
+    IMPORTAR ARQUIVO
+  </button>
+</div>
+
+<div
+  class="container-with-files"
+  *ngIf="listFiles.length"
+  [class.arrastando]="isDragging"
+  (dragover)="aoDragOver($event)"
+  (dragleave)="aoDragLeave()"
+  (drop)="aoDrop($event)"
+>
+  <div class="files">
+    <div class="file" *ngFor="let file of listFiles; let i = index">
+      <div class="data-file">
+        <span>{{ file.name }}</span>
+        <span class="data-import">
+          "Arquivo Importado :
+          {{ "Data: " + dataModificate + " Hora: " + hour }}
+        </span>
+      </div>
+      <div class="container-buttons">
+        <mat-icon (click)="onClickPdf(file)">visibility</mat-icon>
+        <mat-icon (click)="deleteFile(i)">delete</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-button-import" *ngIf="!fileAlreadyImported">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="disabled"
+      (click)="buttonInputFile.click()"
+    >
+      IMPORTAR ARQUIVO
+    </button>
+  </div>
+</div>
+
+<input
+  hidden
+  id="buttonInputFile"
+  type="file"
+  accept="application/pdf"
+  #buttonInputFile
+  multiple
+  (change)="onFileSelectionChange($event)"
+/>
